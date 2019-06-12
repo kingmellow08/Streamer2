@@ -1,0 +1,44 @@
+#Streamer
+
+======Models======
+User
+
+Movies
+
+Casts
+
+Directors
+
+Geners
+
+Keywords
+
+ScreenPlay
+
+Tvshows
+
+Recommended
+	what we recommend
+Favorites
+	tvshow
+	movies
+
+
+
+
+======FUNCTIONS======
+Login
+Search movie
+view movie details
+watch movie by streaming
+add/remove favorite
+
+-------future plan
+	search mpovie by 
+	screenplay
+	director
+	cast
+	gener
+
+
+============
