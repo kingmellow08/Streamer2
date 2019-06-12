@@ -28,10 +28,10 @@ Favorites
 
 ======FUNCTIONS======
 Login
-Search movie
-view movie details
-watch movie by streaming
-add/remove favorite
+Search movie or tvshow
+view movie or tvshow details
+watch movie or tvshow by streaming
+add/remove movies/vtshow from favorite
 
 -------future plan
 	search mpovie by 
