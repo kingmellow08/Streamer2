@@ -34,7 +34,7 @@ watch movie or tvshow by streaming
 add/remove movies/vtshow from favorite
 
 -------future plan
-	search mpovie by 
+	search movie/tvshow by 
 	screenplay
 	director
 	cast
