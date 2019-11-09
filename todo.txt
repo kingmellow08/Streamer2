@@ -33,16 +33,22 @@ Name														Staus
 -------------------------------------------------------------------
 
 10. Create genres Table
+
+
+
+========================Bridge Tables==============================
+
+1. Create cast_roles  for Cast and Roles
 -------------------------------------------------------------------
 
-
-======Bridge Tables=======
-1. Create cast_roles  for Cast and Roles
-
 2. Create cast_tv_shows for Cast and TV Shows
+-------------------------------------------------------------------
 
 3. Create cast_movies  for Cast and Movies
+-------------------------------------------------------------------
 
 4. Create tv_show_genrs for TV Shows and Genres
+-------------------------------------------------------------------
 
 5. Create movies_genrs for Movies and Genres
+-------------------------------------------------------------------
