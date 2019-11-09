@@ -5,17 +5,13 @@ User
 
 Movies
 
-Casts
+Tvshows
 
-Directors
+Casts
 
 Geners
 
-Keywords
 
-ScreenPlay
-
-Tvshows
 
 Recommended
 	what we recommend
