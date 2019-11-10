@@ -13,6 +13,8 @@ Geners
 
 Roles
 
+Keywords
+
 
 
 Recommended
@@ -25,7 +27,7 @@ Favorites
 
 
 ======FUNCTIONS======
-Login
+
 Search movie or tvshow
 view movie or tvshow details
 watch movie or tvshow by streaming
@@ -36,7 +38,7 @@ add/remove movies/vtshow from favorite
 	screenplay
 	director
 	cast
-	gener
+	genre
 
 
 ============

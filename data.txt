@@ -2,26 +2,58 @@ https://www.themoviedb.org/?language=en-US
 DATA
 
 Casts
--
-
+-id
+-first_name
+-last_name
+-gender
+-birthday
+-birth_place
+-bio
+-website
+-image
+-bg_image
+-also_known_as
+-created_at
+-updated_at
 
 
 
 TvShows
+-id
 -title
 -status
+-description
+-rated
+-network
 -released_date
--lang
+-type
 -runtime
--budget
--revenue
+-image
+-bg_image
+-created_at
+-updated_at
+
 
 
 
 
 
 Movies
--
+-id
+-title
+-description
+-rated
+-score
+-trailer
+-status
+-released_date
+-runtime
+-budget
+-revenue
+-image
+-bg_image
+-created_at
+-updated_at
 
 
 
@@ -30,7 +62,19 @@ Movies
 Genres
 -id
 -name
+-created_at
+-updated_at
 
 
 Roles
--
+-id
+-name
+-description
+-created_at
+-updated_at
+
+Keywords
+-id
+-keyword
+-created_at
+-updated_at
