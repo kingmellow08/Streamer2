@@ -1,4 +1,5 @@
 https://www.themoviedb.org/?language=en-US
+
 DATA
 
 Casts
@@ -61,15 +62,14 @@ Movies
 
 Genres
 -id
--name
+-genre
 -created_at
 -updated_at
 
 
 Roles
 -id
--name
--description
+-role
 -created_at
 -updated_at
 
@@ -78,3 +78,4 @@ Keywords
 -keyword
 -created_at
 -updated_at
+

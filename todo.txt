@@ -5,31 +5,31 @@
 Name														Staus
 -------------------------------------------------------------------
 
-1. Define the  needed data for TV show
+1. Define the  needed data for TV show  					Done
 -------------------------------------------------------------------
 
 2. Create TV Show Table
 -------------------------------------------------------------------
 
-3. Define the  needed data for movie
+3. Define the  needed data for movie  						Done
 -------------------------------------------------------------------
 
 4. Create movie Table
 -------------------------------------------------------------------
 
-5. Define the  needed data for casts
+5. Define the  needed data for casts   						Done
 -------------------------------------------------------------------
 
 6. Create casts Table
 -------------------------------------------------------------------
 
-7. Define the  needed data for Roles
+7. Define the  needed data for Roles   						Done
 -------------------------------------------------------------------
 
 8. Create roles Table
 -------------------------------------------------------------------
 
-9. Define the  needed data for Genres
+9. Define the  needed data for Genres    					Done
 -------------------------------------------------------------------
 
 10. Create genres Table
