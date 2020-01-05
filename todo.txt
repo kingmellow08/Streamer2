@@ -14,7 +14,7 @@ Name														Staus
 3. Define the  needed data for movie  						Done
 -------------------------------------------------------------------
 
-4. Create movie Table
+4. Create movie Table                                       Done
 -------------------------------------------------------------------
 
 5. Define the  needed data for casts   						Done
