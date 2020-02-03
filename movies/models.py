@@ -23,6 +23,7 @@ class Cast(models.Model)
 	first_name = models.CharField(max_length=200)
 	last_name = models.CharField(max_length=200)
 	gender = models.CharField(max_length=200)
+	birthday = models.CharField(max_length=200)
 
 class Role(models.Model)
 	role = models.CharField(max_length=200)
