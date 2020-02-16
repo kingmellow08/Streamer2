@@ -78,3 +78,9 @@ Keywords
 -keyword
 -created_at
 -updated_at
+
+Favorite
+-id
+-media_id
+-media_type
+-created_at
