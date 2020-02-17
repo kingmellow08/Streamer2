@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Movie(models.Model)
+class Movie(models.Model):
 	title = models.TextField()
 	status = models.CharField(max_length=200)
 	description = models.TextField()
@@ -12,30 +12,30 @@ class Movie(models.Model)
 	network = models.CharField(max_length=200)
 	released_date = models.CharField(max_length=200)
 	show_type = models.CharField(max_length=200)
-	run_time = models.TimeField(auto_now=false)
+	run_time = models.TimeField(auto_now=False)
 	image = models.TextField()
 	bg_image = models.TextField()
 
 	updated_at = models.DateTimeField(auto_now=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 
-class Cast(models.Model)
+class Cast(models.Model):
 	first_name = models.CharField(max_length=200)
 	last_name = models.CharField(max_length=200)
 	gender = models.CharField(max_length=200)
 	birthday = models.CharField(max_length=200)
 
-class Role(models.Model)
+class Role(models.Model):
 	role = models.CharField(max_length=200)
 	updated_at = models.DateTimeField(auto_now=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 
-class Genre(models.Model)
+class Genre(models.Model):
 	genre = models.CharField(max_length=200)
 	updated_at = models.DateTimeField(auto_now=True)
 	created_at = models.DateTimeField(auto_now_add=True) 
 
-class Keyword(models.Model)
+class Keyword(models.Model):
 	keyword = models.CharField(max_length=200)
 	updated_at = models.DateTimeField(auto_now=True)
 	created_at = models.DateTimeField(auto_now_add=True) 

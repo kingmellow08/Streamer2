@@ -2,16 +2,16 @@ from django.db import models
 
 # Create your models here.
 
-class TvShow(models.Model)
+class TvShow(models.Model):
 	title = models.TextField()
 	status = models.CharField(max_length=200)
 	description = models.TextField()
 	rated = models.CharField(max_length=200)
-	score = models.DecimalField(max_length=200)
+	score = models.FloatField()
 	network = models.CharField(max_length=200)
 	released_date = models.CharField(max_length=200)
 	show_type = models.CharField(max_length=200)
-	run_time = models.TimeField(auto_now=false)
+	run_time = models.TimeField(auto_now=False)
 	image = models.TextField()
 	bg_image = models.TextField()
 

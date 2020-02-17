@@ -6,10 +6,12 @@ from .models import TvShow
 # Create your views here.
 
 def index(request):
-	tvshows = TvShow.objects
-	return render(request,'tvshows/index.html', {'tvshows':tvshows})
+	#tvshows = TvShow.objects
+	results = {'tvshow':'tvshow'};
+	return render(request,'tvshows/index.html', results)
 
 
-def view(request, tvshow_id)
-	tvshow = get_object_or_404(TvShow,pk=tvshow_id)
-	return render(request, 'tvshows/view.html', {'tvshow':tvshow})
+def view(request, tvshow_id):
+	#tvshow = get_object_or_404(TvShow,pk=tvshow_id)
+	result = {'tvshow':'tvshow'};
+	return render(request, 'tvshows/view.html', result)
