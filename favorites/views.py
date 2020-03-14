@@ -7,5 +7,5 @@ from .models import Favorites
 
 def index(request, ):	
 	results = {'favorites':'favorites'}
-	return render(request,'favorites/index.html', results)
+	return render(request,'index.html', results)
 

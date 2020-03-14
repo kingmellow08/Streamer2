@@ -8,10 +8,10 @@ from .models import TvShow
 def index(request):
 	#tvshows = TvShow.objects
 	results = {'tvshow':'tvshow'};
-	return render(request,'tvshows/index.html', results)
+	return render(request,'index.html', results)
 
 
 def view(request, tvshow_id):
 	#tvshow = get_object_or_404(TvShow,pk=tvshow_id)
-	result = {'tvshow':'tvshow'};
-	return render(request, 'tvshows/view.html', result)
+	result = {'tvshow':'tvshow/view'};
+	return render(request, 'view.html', result)

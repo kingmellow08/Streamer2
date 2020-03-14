@@ -1,0 +1,17 @@
+*{
+	padding:0;
+	margin:0;
+	border:0;
+}
+nav.menu{
+	background: #000;
+	height: 25px;
+}
+nav.menu div a{
+	font-size: 12px;
+	color: #ffff;
+	padding: 5px;	
+}
+nav.menu div a .fa-heart{
+	color: #ff4355;
+}
