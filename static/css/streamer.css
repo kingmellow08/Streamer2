@@ -12,6 +12,12 @@ nav.menu div a{
 	color: #ffff;
 	padding: 5px;	
 }
+nav.menu div select{
+	font-size: 12px;
+	background: #000;
+	color:#fff;
+	border:1px solid #fff;	
+}
 nav.menu div a .fa-heart{
 	color: #ff4355;
 }
