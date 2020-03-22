@@ -1,8 +1,7 @@
 #Streamer
 
 ======Models======
-User
-
+//User not needed
 Movies
 
 Tvshows
@@ -11,7 +10,7 @@ Casts
 
 Geners
 
-Roles
+Roles -trackis who is actor or producer or screen writer
 
 Keywords
 

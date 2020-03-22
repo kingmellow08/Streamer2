@@ -6,6 +6,6 @@ from .models import Favorites
 # Create your views here.
 
 def index(request, ):	
-	results = {'favorites':'favorites'}
-	return render(request,'index.html', results)
+	results = {'favorites':range(10)}
+	return render(request,'fav.html', results)
 
