@@ -37,10 +37,40 @@
 		</div>	
 		
 	</nav>
-	<div id="streamer">
+	<div id="view-modal" class="modal" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body position-relative">
+					<button type="button" class="close modal-close-btn" aria-label="Close" data-dismiss="modal">
+						<i class="fas fa-times"></i>
+					</button>
+					<div class="content-box">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="player-modal" class="modal" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body position-relative">
+					<button type="button" class="close modal-close-btn" aria-label="Close" data-dismiss="modal">
+						<i class="fas fa-times"></i>
+					</button>
+					<div class="content-box">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="streamer" class="clearfix">
 		
 		{% block content %}{% endblock %}
 		
 	</div>
+	<script type="text/javascript" src="{% static 'js/streamer.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/player.js' %}"></script>
 </body>
 </html>

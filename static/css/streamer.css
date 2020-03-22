@@ -83,3 +83,30 @@ nav.menu .right-icons i{
 .favorite.active i{
 	color:red;
 }
+.modal-dialog{
+	margin:0;
+}
+.modal-close-btn{
+	position: absolute;
+	top:10px;
+	right:10px;
+	font-size:30px;
+	color: #ffffff;
+	text-shadow: 0 1px 0 #fff;
+    opacity: 0.8;
+}
+.modal-close-btn:not(:disabled):not(.disabled):hover{
+	opacity: 1;
+}
+.modal-close-btn:hover{
+	color: #ffffff;	
+}
+.modal-content{
+	margin: 0 auto;
+	max-width: none;
+	height:100vh ;
+	background: #1d2124;
+}
+.modal-dialog{
+	max-width: none;
+}
