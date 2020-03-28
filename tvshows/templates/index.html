@@ -3,14 +3,11 @@
 {% block title %}TvShow{% endblock %}
 
 {% block content %}
-    {% for i in tvshows %}
-        <a class="media-box" href="#" data-toggle="modal" data-target="#view-modal">
-            <span  class="favorite"><i class="fas fa-heart"></i></span>
-            <div class="overlay"></div>
-            <label class="text-center">
-                <div>Title {{ i }}</div>
-                <div>2020</div>
-            </label>
-        </a>
-    {% endfor %}
+<div id="app-stage">
+
+</div>
+<script>
+getTvshows();
+</script>
 {% endblock %}
+

@@ -9,26 +9,26 @@
 	<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'bootstrap-4.4.1-dist/js/bootstrap.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/streamer.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/player.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/player.js' %}"></script>	
 </head>
 <body>
+	{% csrf_token %}
 	<nav class="menu clear-fix">
 		<div class="float-left">
 			<a title="TvShows" href="/">TvShows</a>
 			<a title="Movies" href="/movies">Movies</a>
 			<select id="genre">
-			  <option>-Genre-</option>
-			  <option value="saab">Saab</option>
-			  <option value="drama">Drama</option>
-			  <option value="comedy">Comedy</option>
+				<option value="">-Genre-</option>
+				<option value="crime">Crime</option>
+				<option value="drama">Drama</option>
+				<option value="comedy">Comedy</option>
 			</select>
 			<select id="sort">
-			  <option>-Sort By-</option>
-			  <option value="trending">Trending</option>
-			  <option value="popular">Popular</option>
-			  <option value="year">Year</option>
-			  <option value="title">Title</option>
-			  <option value="rating">Rating</option>
+				<option value="popular">Popular</option>
+			  	<option value="trending">Trending</option>			  
+			  	<option value="year">Year</option>
+			  	<option value="title">Title</option>
+			  	<option value="rating">Rating</option>
 			</select>
 		</div>
 		<div class="float-right right-icons">
@@ -70,7 +70,6 @@
 		{% block content %}{% endblock %}
 		
 	</div>
-	<script type="text/javascript" src="{% static 'js/streamer.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/player.js' %}"></script>
+	
 </body>
 </html>
