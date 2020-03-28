@@ -15,13 +15,22 @@ $(document).ready(function(){
 function buildHtml(nodes , clas){
     var html = '';
     nodes.forEach(function(media){
-        html += '<a class="media-box '+clas+'" href="#" data-media="'+media.id+'" style="background-image:url(https://image.tmdb.org/t/p/w500/'+media.poster_path+');background-size: contain;">';
+        html += '<a class="media-box '+clas+'" data-media="'+media.id+'" style="background-image:url(https://image.tmdb.org/t/p/w500/'+media.poster_path+');background-size: contain;">';
         html += '<span  class="favorite"><i class="fas fa-heart"></i></span>';
         html += '<div class="overlay"></div>';
         html += '<label class="text-center">';
-        html += '<div>'+media.name+'</div>';
+        
         if(clas == "movie"){
-            html +=  '<div>2020</div>';
+            
+            html += '<div>'+media.title+'</div>';
+            if(media.release_date){
+                var d = new Date(media.release_date);
+                var year  = d.getFullYear();
+                html +=  '<div>'+year+'</div>';
+            }
+            
+        }else{
+            html += '<div>'+media.name+'</div>';
         }        
         html += '</label>'
         html += '</a>';
@@ -58,6 +67,7 @@ function getMovie(id){
 }
 
 function fetchMedia(url, params, callback){
+    $("#loader-box").show();
     params.genre = $("select#genre").val();
     params.sort = $("select#sort").val();
     params.csrfmiddlewaretoken = $("input[name='csrfmiddlewaretoken']").val();
@@ -71,9 +81,10 @@ function fetchMedia(url, params, callback){
                 if(data.page){window.streamer.page = data.page;window.streamer.pages = data.total_page;}
                 callback(data.results);
             }
+            $("#loader-box").hide();
         },
         error:function(){
-
+            $("#loader-box").hide();
         }
     });
 }
