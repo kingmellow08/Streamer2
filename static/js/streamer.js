@@ -14,9 +14,9 @@ $(document).ready(function(){
         var id = $(this).attr("data-youtube");
         var iframe = document.createElement('iframe');
         iframe.id="trailer";
-        iframe.frameborder=0;
-        iframe.allowfullscreen = "allowfullscreen";
-        iframe.src = "https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=0&autohide=1&mute=0&showinfo=0&controls=1&autoplay=1";
+        iframe.setAttribute("frameborder",0);
+        iframe.setAttribute("allowfullscreen", "allowfullscreen");
+        iframe.src = "https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=0&autohide=1&mute=0&showinfo=0&controls=1&autoplay=1&fs=1";
 
         $("#player-modal .content-box").html(iframe);
         $("#player-modal").modal("show");

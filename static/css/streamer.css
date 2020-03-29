@@ -145,11 +145,12 @@ nav.menu .right-icons i{
 	grid-gap: 30px;
 	height: 93vh;
 	padding-top: 30px;
+	max-width: 1280px;
+    margin: 0 auto;
 }
 .movie-details .details{
 	overflow-y: hidden;
 	color: #fff;
-	width: 60vw;
 	height: 75vh;
 }
 
@@ -158,7 +159,6 @@ nav.menu .right-icons i{
 	font-weight: bold;
 }
 .movie-details .poster{
-	width: 34vw;
 	height: 75vh;
 }
 /*  Player  */
