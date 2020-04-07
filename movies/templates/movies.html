@@ -7,6 +7,14 @@
 
 </div>
 <script>
-getMovies();
+$(document).ready(function(){
+	getMovies();
+
+	$(window).scroll(function(){
+	    if($(document).height() - wind.height() == wind.scrollTop()){  
+	         getMovies();
+	    }
+	 });
+ });
 </script>
 {% endblock %}

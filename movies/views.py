@@ -12,7 +12,7 @@ append_to = "&append_to_response="
 
 # Create your views here.
 def index(request):
-	movies = {'tvshows':''};
+	movies = {};
 	if request.method == "POST":		
 		sort = request.POST.get("sort");
 		genre = request.POST.get("genre");
@@ -30,10 +30,9 @@ def index(request):
 def view(request, movie_id):
 	movie = {};
 	if request.method == "POST":
-		append_to_response = append_to + "videos,images,credits";\
-		v_id = request.POST.get("id");
-		if(v_id):
-			url = 'https://api.themoviedb.org/3/movie/'+v_id+'?api_key='+api_key+append_to_response;
+		append_to_response = append_to + "videos,images,credits";
+		if(movie_id):
+			url = 'https://api.themoviedb.org/3/movie/'+str(movie_id)+'?api_key='+api_key+append_to_response;
 			resp = requests.get(url);
 			movie = resp.json();
 			
