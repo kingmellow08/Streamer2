@@ -153,6 +153,9 @@ nav #query-input{
 	height:100vh ;
 	background: #1d2124;
 }
+.modal-body{
+	background: #1d2124;
+}
 .modal.media-view .modal-content{
 	height: calc(100vh - 25px);
 	margin-top:25px;
@@ -187,6 +190,17 @@ nav #query-input{
 .movie-details .poster{
 	height: 75vh;
 }
+
+/* TVshow */
+#view-tvshow .poster img{
+	max-height: 350px;
+	margin-left: auto;
+	display: block;
+}
+.seasons .season{
+	cursor: pointer;
+}
+
 /* Casts  */
 #view-cast .modal-body{
 	background: rgb(0, 0, 0);
@@ -227,6 +241,7 @@ nav #query-input{
 	font-size: 10px;
 	display: block;
 }
+.modal .description,
 .cast-detail .cast-biography{
 	max-width: 1000px;
 }

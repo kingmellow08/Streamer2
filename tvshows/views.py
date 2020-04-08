@@ -13,7 +13,7 @@ append_to = "&append_to_response="
 def index(request):
 	results = {'tvshows':''};
 	params = "?api_key="+api_key;
-	if request.method == "POST":		
+	if request.method == "POST":
 		page = request.POST.get("sort");
 		sort = request.POST.get("sort");
 		genre = request.POST.get("genre");
@@ -27,7 +27,7 @@ def index(request):
 		tvshows = resp.json();
 		return JsonResponse(tvshows);
 
-	
+
 	return render(request,'index.html', results)
 
 
@@ -35,12 +35,12 @@ def index(request):
 def view(request, tvshow_id):
 	tvshow = {};
 	if request.method == "POST":
-		append_to_response = append_to + "videos,images,credits";
+		append_to_response = append_to;
 		if(tvshow_id):
 			url = 'https://api.themoviedb.org/3/tv/'+str(tvshow_id)+'?api_key='+api_key+append_to_response;
 			resp = requests.get(url);
 			tvshow = resp.json();
-			
+
 	return JsonResponse(tvshow);
 
 
@@ -52,6 +52,5 @@ def cast(request, cast_id):
 			url = 'https://api.themoviedb.org/3/person/'+str(cast_id)+'?api_key='+api_key+append_to_response;
 			resp = requests.get(url);
 			cast = resp.json();
-			
+
 	return JsonResponse(cast);
-	

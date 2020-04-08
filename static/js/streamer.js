@@ -88,7 +88,7 @@ function buildMedia(nodes , clas){
 
 function getTvshows(){
     var params = {};
-    if(window.streamer.tvshows.page){
+    if(window.streamer && window.streamer.tvshows && window.streamer.tvshows.page){
         if(window.streamer.tvshows.page < window.streamer.tvshows.pages){
             params.page = window.streamer.tvshows.page + 1;
         }
@@ -100,10 +100,68 @@ function getTvshows(){
     });
 }
 
-function getTvshow(id){
-    fetchMedia("/"+id, {}, function(data){
-        $("#view-tvshow").modal("show");
+function getTvshow(tv_id){
+    $("#view-tvshow .details .status").html("");
+    $("#view-tvshow .details .year").html("");
+    $("#view-tvshow .poster img").attr('src','/static/images/placeholder.png');
+    $("#view-tvshow .poster img").attr('alt', '');
+
+    fetchMedia("/"+tv_id, {}, function(data){
+      $("#view-tvshow .details .title").text(data.name);
+      $("#view-tvshow .details .description p").text(data.overview);
+
+      if(data.poster_path){
+        $("#view-tvshow .poster img").attr('src','https://image.tmdb.org/t/p/w500/'+data.poster_path);
+      }
+      $("#view-tvshow .poster img").attr('alt', data.name);
+
+      if(data.genres && data.genres.length > 0){
+          var genres = '';
+          data.genres.forEach(function(genre){
+              genres += '<span class="badge badge-dark">'+genre.name+'</span>&nbsp;';
+          });
+          $("#view-tvshow .details .genres").html(genres);
+      }
+
+      if(data.status){
+        $("#view-tvshow .details .status").html("<span>Status: "+data.status+"</span>");
+      }
+
+      if(data.type){
+        $("#view-tvshow .details .type").html("<span>Type: "+data.type+"</span>");
+      }
+
+      if(data.first_air_date){
+        var d = new Date(data.first_air_date);
+        var year  = d.getFullYear();
+        $("#view-tvshow .details .year").html("<span>First Aired:</span> "+year);
+      }
+      var seasons = '';
+      if(data.seasons){
+        var name = data.name.trim().toLowerCase().replace(/'/g,"").replace(/ /g,"_");
+        data.seasons.forEach(function(season){
+          var lab = "_"+season.name.trim().toLowerCase().replace(/ /g,"_");
+          var ele_id =  name+lab;
+          seasons += "<div class='season' aria-controls='"+ele_id+"' data-toggle='pill' role='tab'>"+season.name+"</div>";
+          getEpisodes(tv_id, season.id, ele_id);
+        });
+      }
+      $("#view-tvshow .seasons .wrapper").html(seasons);
+
+      $("#view-tvshow").modal("show");
     });
+}
+
+function getEpisodes(tv_id,season_id,ele){
+  var params = {tv_id:tv_id,}
+  fetchMedia("/movies/", params, function(data){
+      var html = "";
+      var detail = "";
+      data.episodes.forEach(function(episode){
+        html += ""
+      });
+
+  });
 }
 
 function getMovies(){
@@ -135,7 +193,7 @@ function getMovie(id){
     $("#view-movie .poster img").attr('alt', '');
 
     fetchMedia("/movies/"+id, {}, function(data){
-        var metadata = "";
+
         $("#view-movie .details .title").text(data.title);
         $("#view-movie .details .description p").text(data.overview);
 
@@ -176,8 +234,6 @@ function getMovie(id){
           var year  = d.getFullYear();
           $("#view-movie .details .year").html("<strong>"+year+"</strong>");
         }
-
-        $("#view-movie .details .metadata").html(metadata);
 
         $("#view-cast").modal('hide');
         $("#view-movie").modal("show");
