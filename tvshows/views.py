@@ -40,6 +40,11 @@ def view(request, tvshow_id):
 			url = 'https://api.themoviedb.org/3/tv/'+str(tvshow_id)+'?api_key='+api_key+append_to_response;
 			resp = requests.get(url);
 			tvshow = resp.json();
+			if(tvshow['seasons']):
+				for season in tvshow['seasons']:
+					season['episodes'] = getEpisodes(tvshow_id,season['season_number'])
+
+
 
 	return JsonResponse(tvshow);
 
@@ -54,3 +59,12 @@ def cast(request, cast_id):
 			cast = resp.json();
 
 	return JsonResponse(cast);
+
+def getEpisodes(tv_id,season_number):
+	url = "https://api.themoviedb.org/3/tv/"+str(tv_id)+"/season/"+str(season_number)+'?api_key='+api_key
+	resp = requests.get(url);
+	tvshow = resp.json();
+	if(tvshow['episodes']):
+		return tvshow['episodes'];
+	else:
+		return []

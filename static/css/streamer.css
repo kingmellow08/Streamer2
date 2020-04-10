@@ -157,8 +157,7 @@ nav #query-input{
 	background: #1d2124;
 }
 .modal.media-view .modal-content{
-	height: calc(100vh - 25px);
-	margin-top:25px;
+	height: 100vh;
 }
 .modal-dialog{
 	max-width: none;

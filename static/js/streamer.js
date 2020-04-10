@@ -32,8 +32,29 @@ $(document).ready(function(){
         if(id)getCast(id);
     });
 
+    $(document).on("click","#view-tvshow .seasons .wrapper .season", function(e){
+      var hre = $(this).attr("href");
+      hre += " a";
+      setTimeout(function(){
+        $(hre).first().click();
+      },200);
+    })
 
 });
+
+function buildEpisode(episode,el_id){
+  var dat = new Date(episode.air_date).toLocaleDateString('en-US', {day: 'numeric',month: 'short', year: 'numeric'});
+
+  var html = '<div  class="tab-pane fade" id="'+el_id+'" role="tabpanel">';
+  html += "<h2>"+episode.name+"</h2>";
+  html += "<div><small>Season "+episode.season_number+", Episode "+episode.episode_number+"</small></div>";
+  html += "<div><small>Aired Date: "+dat+"</small></div>";
+  html += "<p class='mt-3'>"+episode.overview+"</p>";
+  html += "<div class='m-5 p-5'></div>";
+  html += '<div><button class="btn btn-success watch-now">Watch Now</button></div>';
+  html += "</div>";
+  return html;
+}
 
 function buildCast(casts){
     var html = '';
@@ -91,7 +112,7 @@ function getTvshows(){
     if(window.streamer && window.streamer.tvshows && window.streamer.tvshows.page){
         if(window.streamer.tvshows.page < window.streamer.tvshows.pages){
             params.page = window.streamer.tvshows.page + 1;
-        }
+        }Casts
     }
     fetchMedia("/", params, function(data){
         var html = buildMedia(data,'tvshow');
@@ -136,32 +157,34 @@ function getTvshow(tv_id){
         var year  = d.getFullYear();
         $("#view-tvshow .details .year").html("<span>First Aired:</span> "+year);
       }
-      var seasons = '';
+      var seasonshtml = '';
+      var episodeshtml = '';
+      var episodesDetailhtml = '';
       if(data.seasons){
-        var name = data.name.trim().toLowerCase().replace(/'/g,"").replace(/ /g,"_");
         data.seasons.forEach(function(season){
-          var lab = "_"+season.name.trim().toLowerCase().replace(/ /g,"_");
-          var ele_id =  name+lab;
-          seasons += "<div class='season' aria-controls='"+ele_id+"' data-toggle='pill' role='tab'>"+season.name+"</div>";
-          getEpisodes(tv_id, season.id, ele_id);
+          var ele_id =  season.name.trim().toLowerCase().replace(/ /g,"_");;
+          seasonshtml += "<a class='season' href='#"+ele_id+"' aria-controls='"+ele_id+"' data-toggle='pill' role='tab'>"+season.name+"</a>";
+          episodeshtml += "<div class='tab-pane fade' role='tabpanel' id='"+ele_id+"'>";
+          episodeshtml += "<div class='tablist nav flex-column nav-pills' aria-orientation='vertical'>";
+          season.episodes.forEach(function(episode){
+            episodeshtml += '<a href="#'+(ele_id+"_"+episode.id)+'" data-toggle="pill" role="tab" aria-controls="'+(ele_id+"_"+episode.id)+'">'+episode.episode_number +' - '+ episode.name+'</a>';
+            var epis = buildEpisode(episode,ele_id+"_"+episode.id);
+            episodesDetailhtml += epis;
+          });
+          episodeshtml += "</div></div></div>";
+
         });
       }
-      $("#view-tvshow .seasons .wrapper").html(seasons);
+      $("#view-tvshow .seasons .wrapper").html(seasonshtml);
+      $("#view-tvshow .episodes .wrapper").html(episodeshtml);
+      $("#view-tvshow .episode-detail .wrapper").html(episodesDetailhtml);
+
+      setTimeout(function(){
+        $("#view-tvshow .seasons .wrapper .season").first().click();
+      },200)
 
       $("#view-tvshow").modal("show");
     });
-}
-
-function getEpisodes(tv_id,season_id,ele){
-  var params = {tv_id:tv_id,}
-  fetchMedia("/movies/", params, function(data){
-      var html = "";
-      var detail = "";
-      data.episodes.forEach(function(episode){
-        html += ""
-      });
-
-  });
 }
 
 function getMovies(){
@@ -257,7 +280,7 @@ function getCast(id){
         $("#view-cast .cast-biography").text(cast.biography);
 
         var gender = getGender(cast.gender);
-        var tvshows = buildMedia(cast.tv_credits.cast,'tvshow');
+        //var tvshows = buildMedia(cast.tv_credits.cast,'tvshow');
         var movies = buildMedia(cast.movie_credits.cast,'movie');
 
         if(cast.profile_path){
@@ -267,7 +290,7 @@ function getCast(id){
         $("#view-cast .cast-gender").text(gender);
         $("#view-cast .cast-place-of-birth").text(cast.place_of_birth);
         $("#view-cast .cast-role").text(cast.known_for_department);
-        $("#view-cast .cast-tvshows").html (tvshows);
+        //$("#view-cast .cast-tvshows").html (tvshows);
         $("#view-cast .cast-movies").html(movies);
         $("#view-cast").modal('show');
     })
